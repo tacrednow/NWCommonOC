@@ -7,6 +7,7 @@ final class NWCommonOCTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         // XCTAssertEqual(NWCommonOC().text, "Hello, World!")
+        XCTAssertNotNil(NWCommonOC.getMacAddress())
     }
 
     static var allTests = [

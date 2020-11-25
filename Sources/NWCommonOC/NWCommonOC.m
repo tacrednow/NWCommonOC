@@ -60,8 +60,9 @@ CFDataRef copy_mac_address(void)
 
 @implementation NWCommonOC
 
-+ (CFDataRef)getMacAddress {
-    copy_mac_address();
++ (NSData *)getMacAddress {
+    NSData *data = (__bridge NSData *)(copy_mac_address());
+    return data;
 }
 
 @end
