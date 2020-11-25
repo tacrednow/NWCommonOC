@@ -12,12 +12,7 @@ let package = Package(
     ],
     dependencies: [
     ],
-    targets: [
-        .target(
-            name: "NWCommonOC",
-            dependencies: []),
-        .testTarget(
-            name: "NWCommonOCTests",
-            dependencies: ["NWCommonOC"]),
-    ]
+    targets: [.target(name: "NWCommonOC",
+                      path: "Sources/NWCommonOC",
+                      publicHeadersPath: "")]
 )
