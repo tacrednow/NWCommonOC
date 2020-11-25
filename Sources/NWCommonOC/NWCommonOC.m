@@ -60,7 +60,7 @@ CFDataRef copy_mac_address(void)
 
 @implementation NWCommonOC
 
-- (CFDataRef)getMacAddress {
++ (CFDataRef)getMacAddress {
     copy_mac_address();
 }
 

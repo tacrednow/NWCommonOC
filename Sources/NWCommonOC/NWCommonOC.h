@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NWCommonOC : NSObject
-- (CFDataRef)getMacAddress;
++ (CFDataRef)getMacAddress;
 @end
 
 NS_ASSUME_NONNULL_END
