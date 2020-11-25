@@ -7,8 +7,9 @@
 
 #import "NWCommonOC.h"
  
-#if TARGET_OS_MAC
-
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#else
 #import <IOKit/IOKitLib.h>
 // Returns a CFData object, containing the computer's GUID.
 CFDataRef copy_mac_address(void)
@@ -59,29 +60,24 @@ CFDataRef copy_mac_address(void)
  
     return macAddress;
 }
-
 #endif
 
 @implementation NWCommonOC
 
-#if TARGET_OS_MAC
-
-+ (NSData *)getMacAddress {
-    NSData *data = (__bridge NSData *)(copy_mac_address());
-    return data;
-}
-
-#else
-
+#if TARGET_OS_IPHONE
 + (NSData *)getMacAddress {
     UIDevice *device = [UIDevice currentDevice];
     NSUUID *idintifier = [device identifierForVendor];
     uuid_t uuid;
-    [identifier getUUIDBytes:uuid];
+    [idintifier getUUIDBytes:uuid];
     NSData *guidData = [NSData dataWithBytes:(const void *)uuid length:16];
     return guidData;
 }
-
+#else
++ (NSData *)getMacAddress {
+    NSData *data = (__bridge NSData *)(copy_mac_address());
+    return data;
+}
 #endif
 
 @end
